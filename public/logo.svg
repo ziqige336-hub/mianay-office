@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Mianay Office Brand Background -->
+  <rect width="100" height="100" fill="#0076FE" rx="20" />
+  <!-- Left horizontal wing with diagonal cut -->
+  <polygon points="14,19 47.2,19 45.0,23.4 14,23.4" fill="#FFFFFF" />
+  <!-- Right wing and vertical stem with matching diagonal cut -->
+  <polygon points="50.8,19 86,19 86,23.4 53.0,23.4 53.0,84.8 48.6,84.8 48.6,23.4" fill="#FFFFFF" />
+</svg>

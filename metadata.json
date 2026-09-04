@@ -1,0 +1,8 @@
+{
+  "name": "Lumina Office",
+  "description": "开源纯本地离线现代化办公与 PDF 工具箱套件，支持 PDF 编辑、无损去水印、页面重排、Pure Doc、Pure Sheet 与离线 OCR",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

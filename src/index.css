@@ -1,0 +1,339 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-neutral-750: #29292e;
+  --color-neutral-850: #1a1a1d;
+}
+
+@layer base {
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --font-serif: 'Songti SC', 'SimSun', 'Times New Roman', Georgia, serif;
+    --font-mono: 'SF Mono', 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+    color-scheme: light;
+  }
+
+  :root.dark,
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f5f5f7;
+    color: #171717;
+  }
+
+  html.dark body,
+  .dark body {
+    background-color: #171717;
+    color: #f5f5f5;
+  }
+}
+
+/* Comprehensive Dark Mode Selection */
+::selection {
+  background: rgba(0, 118, 254, 0.25);
+  color: inherit;
+}
+
+.dark ::selection {
+  background: rgba(0, 118, 254, 0.45);
+  color: #ffffff;
+}
+
+/* PDF Eye-Care Night Reading Mode */
+.pdf-night-mode canvas {
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(0.96);
+  transition: filter 0.25s ease;
+}
+
+.pdf-night-mode .PageContainer {
+  background-color: #1e1e22 !important;
+}
+
+/* Apple HIG Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 140, 140, 0.25);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 140, 140, 0.45);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(200, 200, 200, 0.2);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.35);
+}
+
+/* Glassmorphism / macOS Vibrancy */
+.glass-panel {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+}
+
+/* Apple Pages A4 Paper Shadow */
+.paper-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 30px -4px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+.dark .paper-shadow {
+  box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Tiptap / ProseMirror Typography Styling (WPS / Word Chinese A4 Document Standard) */
+.ProseMirror {
+  outline: none;
+  min-height: 800px;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  color: #1f2328;
+}
+
+.dark .ProseMirror {
+  color: #e2e8f0;
+}
+
+.ProseMirror p {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 21px !important;
+  box-sizing: border-box !important;
+  min-height: 21px; /* 保证空回车行高度精确等于一行 */
+}
+
+.ProseMirror h1 {
+  font-size: 22px !important;
+  font-weight: 700;
+  line-height: 32px !important;
+  margin: 12px 0 6px 0 !important;
+  letter-spacing: -0.01em;
+}
+
+.ProseMirror h2 {
+  font-size: 16px !important;
+  font-weight: 650;
+  line-height: 24px !important;
+  margin: 10px 0 4px 0 !important;
+  letter-spacing: -0.01em;
+}
+
+.ProseMirror h3 {
+  font-size: 15px !important;
+  font-weight: 600;
+  line-height: 22px !important;
+  margin: 8px 0 4px 0 !important;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5em;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+.ProseMirror li {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  line-height: 21px !important;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid #007aff;
+  padding-left: 0.8em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 8px !important;
+  margin-bottom: 8px !important;
+  font-style: italic;
+  color: #555;
+  line-height: 21px !important;
+}
+
+.dark .ProseMirror blockquote {
+  color: #aaa;
+  border-left-color: #0a84ff;
+}
+
+.ProseMirror pre {
+  background-color: #1e1e24;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.ProseMirror code {
+  background-color: rgba(120, 120, 128, 0.15);
+  border-radius: 4px;
+  padding: 0.15em 0.35em;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 1px solid rgba(120, 120, 128, 0.2);
+  margin: 2em 0;
+}
+
+/* Tiptap Tables */
+.ProseMirror table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1.5em 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+}
+
+.ProseMirror td,
+.ProseMirror th {
+  min-width: 1.5em;
+  border: 1px solid #cbd5e1 !important;
+  padding: 8px 12px;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.dark .ProseMirror table {
+  border-color: #475569;
+}
+
+.dark .ProseMirror td,
+.dark .ProseMirror th {
+  border-color: #475569 !important;
+}
+
+.ProseMirror th {
+  font-weight: 600;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.dark .ProseMirror th {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.ProseMirror .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(0, 122, 255, 0.1);
+  pointer-events: none;
+}
+
+/* Lumina Doc Layout Engine - Page Separation & Gap Rules */
+.pm-page-break-widget {
+  display: block !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Force eliminate margin-top and padding-top interference for first node and new page nodes */
+.ProseMirror > *:first-child,
+.ProseMirror > h1:first-child,
+.ProseMirror > h2:first-child,
+.ProseMirror > h3:first-child,
+.ProseMirror > p:first-child,
+.pm-page-break-widget + *,
+.pm-page-break-widget + h1,
+.pm-page-break-widget + h2,
+.pm-page-break-widget + h3,
+.pm-page-break-widget + p {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.pm-page-break-widget + * > *:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Eliminate margin-bottom on node immediately preceding page break to ensure exact spacer positioning */
+*:has(+ .pm-page-break-widget) {
+  margin-bottom: 0 !important;
+}
+
+#doc-paged-editor-wrapper {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#doc-paged-editor-wrapper > div {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+#doc-paged-editor-wrapper .ProseMirror {
+  padding-top: var(--doc-margin-top, 72px) !important;
+  box-sizing: border-box !important;
+}
+
+.doc-page-gap {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.docx-page-header,
+.doc-page-header {
+  position: absolute !important;
+  top: 28px !important;
+  left: 72px !important;
+  right: 72px !important;
+  height: 24px !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.docx-page-footer,
+.doc-page-footer {
+  position: absolute !important;
+  bottom: 28px !important;
+  left: 72px !important;
+  right: 72px !important;
+  height: 24px !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+

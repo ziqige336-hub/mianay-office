@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mianay Office — 现代化专业级开源本地离线办公套件</title>
+    <meta name="description" content="Mianay Office - 零广告、无VIP限制、100%本地隐私离线的现代化办公与 PDF 工具箱套件" />
+    <meta property="og:title" content="Mianay Office" />
+    <meta property="og:description" content="Mianay Office 现代化专业级开源本地离线办公套件" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          const mode = localStorage.getItem('mianay_theme_mode') || 'system';
+          const isDark =
+            mode === 'dark' ||
+            (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (isDark) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="h-full bg-[#f5f5f7] dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 antialiased select-none font-sans overflow-hidden">
+    <div id="root" class="h-full w-full"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
